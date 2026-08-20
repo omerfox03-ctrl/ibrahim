@@ -327,6 +327,7 @@
       </div>
     </div>
     <div class="install-actions">
+      <!-- زر عدم العرض مجدداً -->
       <button id="neverShowInstall" class="btn btn-ghost btn-sm" style="color: var(--danger); font-size: .8rem; padding-left: 0; padding-right: 0;">عدم العرض مجدداً</button>
       <div class="right-btns">
         <button id="installBtn" class="btn btn-primary btn-sm">تثبيت</button>
@@ -667,12 +668,12 @@
       <div class="brand"><span class="brand-title">لإبراهيم رحمه الله</span></div>
       <p class="foot-dua">اللهم اغفر لإبراهيم وارحمه، وأجرِ له أجر ما يُنتفع به.</p>
       
-      <!-- العداد الفعلي للزوار (تصميم مدمج وذكي) -->
+      <!-- العداد الفعلي (يحسب المشاهدات لزيادة الطاقة الإيجابية) -->
       <div class="visitors" style="display: inline-flex; align-items: center; gap: 0.8rem; font-size: 0.95rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); padding: 0.6rem 1.4rem; border-radius: 999px; box-shadow: var(--shadow); margin-bottom: 1.2rem;">
         <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--primary-soft); color: var(--primary); display: grid; place-items: center; flex: none;">
-          <i data-lucide="users" style="width: 20px; height: 20px;"></i>
+          <i data-lucide="eye" style="width: 20px; height: 20px;"></i>
         </div>
-        <span style="font-weight: 500;">عدد زوّار الموقع:</span>
+        <span style="font-weight: 500;">إجمالي المشاهدات:</span>
         <strong id="visitorCount" style="font-family: var(--font-ui); font-size: 1.2rem; color: var(--primary); margin-right: auto;">
           <i data-lucide="loader" style="width:16px;height:16px;animation:spin 1s linear infinite"></i>
         </strong>
@@ -1106,36 +1107,22 @@
     }
 
     /* =====================================================================
-       Visitor Counter (Smart & Unique)
+       Page Views Counter (Positive Energy)
        ===================================================================== */
     function setupVisitorCount() {
       var el = document.getElementById("visitorCount");
-      // نتحقق مما إذا كان الزائر قد تم حسابه مسبقاً في جهازه
-      var hasVisited = store.get("hasVisited_ibrahim", false);
-      
-      if (!hasVisited) {
-        // زائر جديد: نزيد العداد 1
-        fetch("https://api.counterapi.dev/v1/foribrahim_org/visits/up")
-          .then(function(r) { return r.json(); })
-          .then(function(j) {
-            if(j && j.count) {
-              el.innerHTML = Number(j.count).toLocaleString("ar-EG");
-              // نحفظ في ذاكرة المتصفح أنه تم حسابه لمنع الزيادة عند التحديث
-              store.set("hasVisited_ibrahim", true); 
-            } else { el.innerHTML = "—"; }
-          })
-          .catch(function() { el.innerHTML = "—"; });
-      } else {
-        // زائر قديم: نجلب العدد الحالي فقط بدون زيادته
-        fetch("https://api.counterapi.dev/v1/foribrahim_org/visits")
-          .then(function(r) { return r.json(); })
-          .then(function(j) {
-            if(j && j.count) {
-              el.innerHTML = Number(j.count).toLocaleString("ar-EG");
-            } else { el.innerHTML = "—"; }
-          })
-          .catch(function() { el.innerHTML = "—"; });
-      }
+      // زيادة العداد في كل مرة يتم فيها فتح أو تحديث الصفحة
+      fetch("https://api.counterapi.dev/v1/foribrahim_org/views/up")
+        .then(function(r) { return r.json(); })
+        .then(function(j) {
+          if(j && j.count) {
+            el.innerHTML = Number(j.count).toLocaleString("ar-EG");
+          } else { el.innerHTML = "—"; }
+        })
+        .catch(function() { 
+          // في حال كان الزائر يستخدم مانع إعلانات (AdBlocker) يمنع العدادات
+          el.innerHTML = "—"; 
+        });
     }
 
     /* =====================================================================
