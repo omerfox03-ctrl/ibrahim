@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>صفحة تجربة</title>
+  <style>
+    :root { --bg:#f7f7f9; --card:#ffffff; --text:#222; --accent:#0069ff; }
+    [data-theme="dark"] { --bg:#0f1720; --card:#0b1220; --text:#e6eef8; --accent:#4dabf7; }
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; background:var(--bg); color:var(--text); margin:0; padding:24px; direction:rtl;}
+    .container{max-width:900px;margin:0 auto;display:grid;gap:16px;}
+    header{display:flex;justify-content:space-between;align-items:center;}
+    .card{background:var(--card);padding:16px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);} 
+    button{background:var(--accent);color:#fff;border:0;padding:8px 12px;border-radius:6px;cursor:pointer;}
+    input,textarea{width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;margin-top:6px;}
+    .row{display:flex;gap:12px;}
+    .row > *{flex:1;}
+    footer{font-size:13px;color:rgba(34,34,34,0.6);} 
+    pre{background:#0b0b0b;color:#e6e6e6;padding:12px;border-radius:6px;overflow:auto;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>صفحة تجربة</h1>
+      <div>
+        <button id="themeBtn" aria-pressed="false">تغيير الثيم</button>
+      </div>
+    </header>
+
+    <section class="card" id="interactive">
+      <h2>تفاعل بسيط</h2>
+      <p>اضغط الزر لترى تغيير نص وحالة عدّاد.</p>
+      <div class="row">
+        <button id="actionBtn">اضغطني</button>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <strong>العداد:</strong> <span id="count">0</span>
+        </div>
+      </div>
+      <p id="message" style="margin-top:12px;color:var(--text);opacity:0.9"></p>
+    </section>
+
+    <section class="card" id="form">
+      <h2>نموذج اختبار</h2>
+      <form id="testForm">
+        <label>الاسم
+          <input type="text" name="name" required placeholder="اكتب اسمك">
+        </label>
+        <label>رسالة
+          <textarea name="message" rows="4" required placeholder="اكتب رسالة قصيرة"></textarea>
+        </label>
+        <div style="margin-top:8px;">
+          <button type="submit">إرسال</button>
+        </div>
+      </form>
+      <div id="formResult" style="margin-top:12px"></div>
+    </section>
+
+    <section class="card" id="codePreview">
+      <h2>عرض كود (console)</h2>
+      <p>تفقد أدوات المطور (Console) لرؤية رسائل الجافاسكربت التوضيحية.</p>
+      <pre id="logArea">-- لا توجد رسائل بعد --</pre>
+    </section>
+
+    <footer class="card">
+      <small>افتح الملف في متصفحك (نقرتان على index.html) لتجربة التفاعلات. أرسل لي أي تعديل تريده.</small>
+    </footer>
+  </div>
+
+  <script>
+    // صغير: إدارة الثيم بالتخزين المحلي
+    const themeBtn = document.getElementById('themeBtn');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      if (next === 'dark') document.documentElement.setAttribute('data-theme','dark');
+      else document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', next === 'dark' ? 'dark' : 'light');
+      themeBtn.setAttribute('aria-pressed', next === 'dark');
+      log('Theme switched to: ' + (next === 'dark' ? 'dark' : 'light'));
+    }
+    themeBtn.addEventListener('click', toggleTheme);
+
+    // عدّاد وزر تفاعلي
+    let count = 0;
+    const countEl = document.getElementById('count');
+    const msgEl = document.getElementById('message');
+    const actionBtn = document.getElementById('actionBtn');
+
+    actionBtn.addEventListener('click', () => {
+      count++;
+      countEl.textContent = count;
+      msgEl.textContent = `تم الضغط ${count} مرة${count>1?'':'ة'}.`;
+      log('Button clicked. Count = ' + count);
+    });
+
+    // نموذج بسيط: منع الإرسال الافتراضي وعرض البيانات
+    const form = document.getElementById('testForm');
+    const formResult = document.getElementById('formResult');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const obj = Object.fromEntries(data.entries());
+      formResult.innerHTML = `<strong>تم الإرسال:</strong> اسم="${escapeHtml(obj.name)}" رسالة="${escapeHtml(obj.message)}"`;
+      log('Form submitted: ' + JSON.stringify(obj));
+    });
+
+    // منطقة تسجيل رسائل داخل الصفحة + console
+    const logArea = document.getElementById('logArea');
+    function log(msg) {
+      const ts = new Date().toLocaleTimeString();
+      const entry = `[${ts}] ${msg}`;
+      console.log(entry);
+      if (logArea.textContent === '-- لا توجد رسائل بعد --') logArea.textContent = '';
+      logArea.textContent = entry + '\n' + logArea.textContent;
+    }
+
+    // دالة مساعدة لتفادي XSS في العرض
+    function escapeHtml(s) {
+      return s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('\"','&quot;');
+    }
+
+    // رسالة ترحيب عند التحميل
+    document.addEventListener('DOMContentLoaded', () => {
+      log('صفحة تجربة جاهزة — جرب الأزرار والنموذج.');
+    });
+  </script>
+</body>
+</html>
