@@ -17,10 +17,7 @@
   <meta name="apple-mobile-web-app-title" content="لإبراهيم رحمه الله" />
   <meta name="mobile-web-app-capable" content="yes" />
   
-  <!-- 
-    تفعيل التطبيق (PWA) برمجياً بدون ملفات خارجية. 
-    هذا الكود يولد أيقونة خضراء مكتوب بداخلها "لإبراهيم" بخط جميل ليتم تثبيت التطبيق بها.
-  -->
+  <!-- تفعيل التطبيق (PWA) برمجياً -->
   <link rel="manifest" href="data:application/json;charset=utf-8,%7B%22name%22%3A%22%D9%84%D8%A5%D8%A8%D8%B1%D8%A7%D9%87%D9%8A%D9%85%20%D8%B1%D8%AD%D9%85%D9%87%20%D8%A7%D9%84%D9%84%D9%87%22%2C%22short_name%22%3A%22%D9%84%D8%A5%D8%A8%D8%B1%D8%A7%D9%87%D9%8A%D9%85%22%2C%22start_url%22%3A%22.%2F%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23fbf9f4%22%2C%22theme_color%22%3A%22%231e4f42%22%2C%22dir%22%3A%22rtl%22%2C%22lang%22%3A%22ar%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%253E%253Crect%20width%3D%27512%27%20height%3D%27512%27%20rx%3D%27100%27%20fill%3D%27%25231e4f42%27%2F%253E%253Ctext%20x%3D%2750%2525%27%20y%3D%2750%2525%27%20fill%3D%27%2523fff%27%20font-size%3D%2790%27%20font-weight%3D%27bold%27%20font-family%3D%27Arial%2C%20sans-serif%27%20text-anchor%3D%27middle%27%20dominant-baseline%3D%27middle%27%253E%D9%84%D8%A5%D8%A8%D8%B1%D8%A7%D9%87%D9%8A%D9%85%253C%2Ftext%253E%253C%2Fsvg%253E%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%2C%22purpose%22%3A%22any%20maskable%22%7D%5D%7D" />
 
   <!-- Fonts -->
@@ -105,7 +102,8 @@
     .install-info [data-lucide] { width: 32px; height: 32px; color: var(--primary); flex: none; }
     .install-info strong { display: block; font-size: 1.05rem; color: var(--text); font-weight: 700; margin-bottom: 2px;}
     .install-info p { margin: 0; font-size: 0.85rem; color: var(--muted); }
-    .install-actions { display: flex; gap: .5rem; justify-content: flex-end; }
+    .install-actions { display: flex; gap: .5rem; justify-content: space-between; width: 100%; align-items: center; }
+    .install-actions .right-btns { display: flex; gap: .5rem; }
     @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     @media (min-width: 640px) { .install-banner { max-width: 420px; left: auto; right: 20px; top: 20px;} }
 
@@ -271,7 +269,6 @@
     footer .brand { justify-content: center; margin-bottom: 1rem; }
     footer .foot-dua { font-family: var(--font-scripture); font-size: 1.25rem; color: var(--primary); margin-bottom: 1rem; }
     html[data-theme="dark"] footer .foot-dua { color: var(--gold); }
-    .visitors { display: inline-flex; align-items: center; gap: .5rem; font-size: .9rem; color: var(--muted); background: var(--surface-2); border: 1px solid var(--border); padding: .5rem 1rem; border-radius: 999px; }
     .foot-meta { color: var(--muted); font-size: .82rem; margin-top: 1.2rem; }
 
     .bottom-nav { position: fixed; bottom: 0; right: 0; left: 0; z-index: 1000; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(14px) saturate(1.3); border-top: 1px solid var(--border); display: flex; justify-content: space-around; align-items: stretch; padding-bottom: env(safe-area-inset-bottom, 0px); height: var(--bottom-h); }
@@ -330,8 +327,11 @@
       </div>
     </div>
     <div class="install-actions">
-      <button id="installBtn" class="btn btn-primary btn-sm">تثبيت الآن</button>
-      <button id="closeInstall" class="btn btn-ghost btn-sm"><i data-lucide="x"></i></button>
+      <button id="neverShowInstall" class="btn btn-ghost btn-sm" style="color: var(--danger); font-size: .8rem; padding-left: 0; padding-right: 0;">عدم العرض مجدداً</button>
+      <div class="right-btns">
+        <button id="installBtn" class="btn btn-primary btn-sm">تثبيت</button>
+        <button id="closeInstall" class="btn btn-ghost btn-sm" aria-label="إغلاق"><i data-lucide="x"></i></button>
+      </div>
     </div>
   </div>
 
@@ -667,11 +667,14 @@
       <div class="brand"><span class="brand-title">لإبراهيم رحمه الله</span></div>
       <p class="foot-dua">اللهم اغفر لإبراهيم وارحمه، وأجرِ له أجر ما يُنتفع به.</p>
       
-      <!-- العداد الفعلي للزوار (يعمل كصورة مباشرة لتخطي أي مشاكل تقنية) -->
-      <div class="visitors">
-        <i data-lucide="users"></i> عدد زوّار الموقع: 
-        <strong id="visitorCount">
-          <img src="https://api.visitorbadge.io/api/visitors?path=foribrahim.org&countColor=%231e4f42&labelStyle=none" alt="عداد الزوار" onerror="this.style.display='none'" style="height:20px; vertical-align:middle; border-radius: 4px; margin-right: 6px;">
+      <!-- العداد الفعلي للزوار (تصميم مدمج وذكي) -->
+      <div class="visitors" style="display: inline-flex; align-items: center; gap: 0.8rem; font-size: 0.95rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); padding: 0.6rem 1.4rem; border-radius: 999px; box-shadow: var(--shadow); margin-bottom: 1.2rem;">
+        <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--primary-soft); color: var(--primary); display: grid; place-items: center; flex: none;">
+          <i data-lucide="users" style="width: 20px; height: 20px;"></i>
+        </div>
+        <span style="font-weight: 500;">عدد زوّار الموقع:</span>
+        <strong id="visitorCount" style="font-family: var(--font-ui); font-size: 1.2rem; color: var(--primary); margin-right: auto;">
+          <i data-lucide="loader" style="width:16px;height:16px;animation:spin 1s linear infinite"></i>
         </strong>
       </div>
       
@@ -722,9 +725,13 @@
     "use strict";
 
     /* =====================================================================
-       PWA Install Logic
+       PWA Install Logic & Storage Helpers
        ===================================================================== */
-    // تسجيل الـ Service Worker إن وجد (هذا ضروري لعمل الموقع بدون نت)
+    var store = {
+      get: function (k, d) { try { var v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+      set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+    };
+
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
         navigator.serviceWorker.register('sw.js').catch(function() {});
@@ -738,9 +745,14 @@
     window.addEventListener('beforeinstallprompt', function (e) {
       e.preventDefault();
       deferredPrompt = e;
-      // إظهار اللافتة العلوية بمجرد الدخول للموقع
-      installBanner.classList.add('show');
-      // إظهار الخيار في قائمة "المزيد" السفلية
+      
+      // نتحقق مما إذا كان الزائر قد طلب عدم إظهار اللافتة مجدداً
+      var neverShow = store.get("neverShowInstall_ibrahim", false);
+      if (!neverShow) {
+        installBanner.classList.add('show');
+      }
+      
+      // الخيار يظل متاحاً دائماً في القائمة السفلية "المزيد" لمن يريده لاحقاً
       installAppSheetBtn.style.display = 'flex';
     });
 
@@ -750,19 +762,24 @@
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then(function (choiceResult) {
           deferredPrompt = null;
-          // إخفاء الزر من القائمة بعد التثبيت
           installAppSheetBtn.style.display = 'none';
         });
       }
     }
 
-    // ربط الأزرار بوظيفة التثبيت
     document.getElementById('installBtn').addEventListener('click', doInstall);
     installAppSheetBtn.addEventListener('click', function(e) {
       e.preventDefault();
       doInstall();
     });
+
     document.getElementById('closeInstall').addEventListener('click', function () {
+      installBanner.classList.remove('show');
+    });
+
+    // زر "عدم العرض مجدداً"
+    document.getElementById('neverShowInstall').addEventListener('click', function () {
+      store.set("neverShowInstall_ibrahim", true);
       installBanner.classList.remove('show');
     });
 
@@ -822,10 +839,7 @@
        ===================================================================== */
     var $ = function (s, c) { return (c || document).querySelector(s); };
     var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
-    var store = {
-      get: function (k, d) { try { var v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
-      set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
-    };
+    
     function icons() { if (window.lucide) window.lucide.createIcons(); }
 
     var toastEl = $("#toast"), toastMsg = $("#toastMsg"), toastTimer;
@@ -1092,6 +1106,39 @@
     }
 
     /* =====================================================================
+       Visitor Counter (Smart & Unique)
+       ===================================================================== */
+    function setupVisitorCount() {
+      var el = document.getElementById("visitorCount");
+      // نتحقق مما إذا كان الزائر قد تم حسابه مسبقاً في جهازه
+      var hasVisited = store.get("hasVisited_ibrahim", false);
+      
+      if (!hasVisited) {
+        // زائر جديد: نزيد العداد 1
+        fetch("https://api.counterapi.dev/v1/foribrahim_org/visits/up")
+          .then(function(r) { return r.json(); })
+          .then(function(j) {
+            if(j && j.count) {
+              el.innerHTML = Number(j.count).toLocaleString("ar-EG");
+              // نحفظ في ذاكرة المتصفح أنه تم حسابه لمنع الزيادة عند التحديث
+              store.set("hasVisited_ibrahim", true); 
+            } else { el.innerHTML = "—"; }
+          })
+          .catch(function() { el.innerHTML = "—"; });
+      } else {
+        // زائر قديم: نجلب العدد الحالي فقط بدون زيادته
+        fetch("https://api.counterapi.dev/v1/foribrahim_org/visits")
+          .then(function(r) { return r.json(); })
+          .then(function(j) {
+            if(j && j.count) {
+              el.innerHTML = Number(j.count).toLocaleString("ar-EG");
+            } else { el.innerHTML = "—"; }
+          })
+          .catch(function() { el.innerHTML = "—"; });
+      }
+    }
+
+    /* =====================================================================
        App screen router
        ===================================================================== */
     var SCREEN_IDS = ["home", "dua", "quran", "adhkar", "recitation", "lectures", "sadaqah", "reminder", "share"];
@@ -1146,7 +1193,7 @@
       $("#readerClose").addEventListener("click", closeReader); document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeReader(); });
       $("#fontUp").addEventListener("click", function () { ayahSize = Math.min(3, ayahSize + 0.15); applyAyahSize(); store.set("ayahSize", ayahSize); });
       $("#fontDown").addEventListener("click", function () { ayahSize = Math.max(1.1, ayahSize - 0.15); applyAyahSize(); store.set("ayahSize", ayahSize); });
-      renderLectures(); setupRecitation(); setupReminder(); setupShare(); setupCopyButtons(); setupScreenRouter(); setupSheet();
+      renderLectures(); setupRecitation(); setupReminder(); setupShare(); setupCopyButtons(); setupVisitorCount(); setupScreenRouter(); setupSheet();
       $("#themeToggle").addEventListener("click", toggleTheme); icons();
     }
 
