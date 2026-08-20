@@ -6,26 +6,10 @@
   <meta name="theme-color" content="#1f4b3f" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#12140f" media="(prefers-color-scheme: dark)" />
 
-  <!-- ============================= SEO ============================= -->
   <title>لإبراهيم رحمه الله | صدقة جارية</title>
   <meta name="description" content="موقع صدقة جارية عن إبراهيم رحمه الله: ادعُ له، اقرأ القرآن، اطّلع على الأذكار، وشارك في وقف مبرّد ماء ومصاحف عنه." />
-  <meta name="keywords" content="صدقة جارية, دعاء للميت, وقف, مبرد ماء, مصاحف, أذكار, القرآن الكريم, صدقة عن الميت" />
-  <meta name="author" content="أسرة إبراهيم محمد إبراهيم" />
-  <link rel="canonical" href="https://foribrahim.org/" />
-  <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="ar_AR" />
-  <meta property="og:site_name" content="لإبراهيم رحمه الله" />
-  <meta property="og:title" content="لإبراهيم رحمه الله | صدقة جارية" />
-  <meta property="og:description" content="موقع صدقة جارية عن إبراهيم رحمه الله: ادعُ له، اقرأ القرآن، اطّلع على الأذكار، وشارك في وقف مبرّد ماء ومصاحف عنه." />
-  <meta property="og:url" content="https://foribrahim.org/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="لإبراهيم رحمه الله | صدقة جارية" />
-  <meta name="twitter:description" content="صدقة جارية عن إبراهيم رحمه الله: دعاء، قرآن، أذكار، ووقف مبرّد ماء ومصاحف." />
-
-  <!-- Favicon + app icons -->
+  
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="favicon.svg" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +17,11 @@
   <meta name="apple-mobile-web-app-title" content="لإبراهيم رحمه الله" />
   <meta name="mobile-web-app-capable" content="yes" />
   
-  <!-- تفعيل PWA: ربط ملف manifest -->
-  <link rel="manifest" href="manifest.json" />
+  <!-- 
+    تفعيل التطبيق (PWA) برمجياً بدون ملفات خارجية. 
+    هذا الكود يولد أيقونة خضراء مكتوب بداخلها "لإبراهيم" بخط جميل ليتم تثبيت التطبيق بها.
+  -->
+  <link rel="manifest" href="data:application/json;charset=utf-8,%7B%22name%22%3A%22%D9%84%D8%A5%D8%A8%D8%B1%D8%A7%D9%87%D9%8A%D9%85%20%D8%B1%D8%AD%D9%85%D9%87%20%D8%A7%D9%84%D9%84%D9%87%22%2C%22short_name%22%3A%22%D9%84%D8%A5%D8%A8%D8%B1%D8%A7%D9%87%D9%8A%D9%85%22%2C%22start_url%22%3A%22.%2F%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23fbf9f4%22%2C%22theme_color%22%3A%22%231e4f42%22%2C%22dir%22%3A%22rtl%22%2C%22lang%22%3A%22ar%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%253E%253Crect%20width%3D%27512%27%20height%3D%27512%27%20rx%3D%27100%27%20fill%3D%27%25231e4f42%27%2F%253E%253Ctext%20x%3D%2750%2525%27%20y%3D%2750%2525%27%20fill%3D%27%2523fff%27%20font-size%3D%2790%27%20font-weight%3D%27bold%27%20font-family%3D%27Arial%2C%20sans-serif%27%20text-anchor%3D%27middle%27%20dominant-baseline%3D%27middle%27%253E%D9%84%D8%A5%D8%A8%D8%B1%D8%A7%D9%87%D9%8A%D9%85%253C%2Ftext%253E%253C%2Fsvg%253E%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%2C%22purpose%22%3A%22any%20maskable%22%7D%5D%7D" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,9 +29,6 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ===================================================================
-       DESIGN TOKENS
-       =================================================================== */
     :root {
       --bg: #fbf9f4;
       --surface: #ffffff;
@@ -52,10 +36,10 @@
       --border: #e7e0d0;
       --text: #232320;
       --muted: #6f6a5e;
-      --primary: #1e4f42;      /* deep green */
+      --primary: #1e4f42;
       --primary-strong: #143a30;
       --primary-soft: #eaf1ed;
-      --gold: #ab8130;         /* richer antique gold, tuned to harmonize with the green */
+      --gold: #ab8130;
       --gold-soft: #f5ecd6;
       --danger: #9b3b3b;
       --shadow: 0 1px 2px rgba(31,49,40,.04), 0 8px 24px rgba(31,49,40,.06);
@@ -71,67 +55,28 @@
       --app-w: 640px;
     }
     html[data-theme="dark"] {
-      --bg: #12140f;
-      --surface: #1b1e18;
-      --surface-2: #22261f;
-      --border: #2f342a;
-      --text: #ece7db;
-      --muted: #a49e8f;
-      --primary: #7aa895;
-      --primary-strong: #6b9a86;
-      --primary-soft: #1f2a24;
-      --gold: #d8b869;
-      --gold-soft: #2a2517;
-      --danger: #d98b8b;
+      --bg: #12140f; --surface: #1b1e18; --surface-2: #22261f; --border: #2f342a;
+      --text: #ece7db; --muted: #a49e8f; --primary: #7aa895; --primary-strong: #6b9a86;
+      --primary-soft: #1f2a24; --gold: #d8b869; --gold-soft: #2a2517; --danger: #d98b8b;
       --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
       --shadow-lg: 0 12px 40px rgba(0,0,0,.5);
     }
-
-    /* ===================================================================
-       BASE & BUTTONS
-       =================================================================== */
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body {
-      margin: 0;
-      font-family: var(--font-ui);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      font-size: 16px;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      transition: background .3s ease, color .3s ease;
-    }
+    body { margin: 0; font-family: var(--font-ui); background: var(--bg); color: var(--text); line-height: 1.65; font-size: 16px; overflow-x: hidden; -webkit-font-smoothing: antialiased; transition: background .3s ease, color .3s ease; }
     h1, h2, h3, h4 { line-height: 1.3; margin: 0 0 .5rem; font-weight: 700; }
     p { margin: 0 0 1rem; }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
-    ul { margin: 0; padding: 0; list-style: none; }
     button { font-family: inherit; cursor: pointer; }
     :focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 6px; }
 
-    .skip-link {
-      position: absolute; right: 8px; top: -60px;
-      background: var(--primary); color: #fff; padding: 10px 16px;
-      border-radius: 8px; z-index: 2000; transition: top .2s;
-    }
+    .skip-link { position: absolute; right: 8px; top: -60px; background: var(--primary); color: #fff; padding: 10px 16px; border-radius: 8px; z-index: 2000; transition: top .2s; }
     .skip-link:focus { top: 8px; }
-
     .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
-    .sr-only {
-      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-    }
     [data-lucide] { width: 20px; height: 20px; stroke-width: 1.9; }
 
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
-      padding: .8rem 1.35rem; border-radius: 999px; border: 1px solid transparent;
-      font-size: .98rem; font-weight: 600; background: var(--surface-2); color: var(--text);
-      transition: transform .12s ease, background .2s ease, box-shadow .2s ease, border-color .2s;
-      min-height: 48px;
-    }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; padding: .8rem 1.35rem; border-radius: 999px; border: 1px solid transparent; font-size: .98rem; font-weight: 600; background: var(--surface-2); color: var(--text); transition: transform .12s ease, background .2s ease, box-shadow .2s ease, border-color .2s; min-height: 48px; }
     .btn:hover { transform: translateY(-1px); }
     .btn:active { transform: translateY(0); }
     .btn .icon { width: 19px; height: 19px; }
@@ -144,17 +89,13 @@
     .btn-ghost { background: transparent; border-color: transparent; }
     .btn-ghost:hover { background: var(--surface-2); }
     .btn-sm { padding: .5rem .85rem; min-height: 40px; font-size: .85rem; }
-    .btn-icon {
-      width: 44px; height: 44px; padding: 0; border-radius: 50%;
-      background: var(--surface-2); border: 1px solid var(--border);
-    }
+    .btn-icon { width: 44px; height: 44px; padding: 0; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--border); }
 
     /* ===================================================================
        INSTALL APP BANNER (PWA)
        =================================================================== */
     .install-banner {
-      display: none; /* hidden by default, shown by JS */
-      position: fixed; top: 10px; left: 10px; right: 10px; z-index: 2000;
+      display: none; position: fixed; top: 10px; left: 10px; right: 10px; z-index: 2000;
       background: var(--surface); border: 1px solid var(--primary);
       border-radius: var(--radius); box-shadow: var(--shadow-lg);
       padding: 1rem; flex-direction: column; gap: 1rem;
@@ -168,15 +109,7 @@
     @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     @media (min-width: 640px) { .install-banner { max-width: 420px; left: auto; right: 20px; top: 20px;} }
 
-    /* ===================================================================
-       HEADER & SECTIONS
-       =================================================================== */
-    header.site {
-      position: sticky; top: 0; z-index: 900;
-      background: color-mix(in srgb, var(--bg) 88%, transparent);
-      backdrop-filter: saturate(1.4) blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
+    header.site { position: sticky; top: 0; z-index: 900; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid var(--border); }
     .nav { height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
     .brand { display: flex; align-items: center; gap: .6rem; font-weight: 700; font-size: 1.05rem; }
     .brand-title { font-family: var(--font-display); font-size: 1.2rem; }
@@ -185,35 +118,18 @@
 
     section { scroll-margin-top: 80px; padding: 3.2rem 0; }
     .section-head { max-width: 680px; margin: 0 auto 2rem; text-align: center; }
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: .45rem; font-size: .8rem; font-weight: 600;
-      color: var(--gold); letter-spacing: .02em; margin-bottom: .6rem; text-transform: none;
-    }
+    .eyebrow { display: inline-flex; align-items: center; gap: .45rem; font-size: .8rem; font-weight: 600; color: var(--gold); letter-spacing: .02em; margin-bottom: .6rem; }
     .eyebrow::before, .eyebrow::after { content: ""; width: 22px; height: 1px; background: var(--gold); opacity: .5; }
     .section-head h2 { font-size: clamp(1.5rem, 4vw, 2.05rem); }
     .section-head p { color: var(--muted); margin: 0; }
     .alt { background: var(--surface-2); }
 
-    /* ===================================================================
-       HERO
-       =================================================================== */
     .hero { position: relative; overflow: hidden; padding: clamp(3rem, 8vw, 6rem) 0 clamp(2.5rem, 6vw, 4rem); text-align: center; }
-    .hero-pattern {
-      position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .5;
-      background-image: radial-gradient(circle at 50% -10%, var(--primary-soft), transparent 55%);
-    }
-    .hero-geo {
-      position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .06;
-      background-repeat: repeat; background-size: 120px 120px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%231f4b3f' stroke-width='1.4'%3E%3Crect x='30' y='30' width='60' height='60'/%3E%3Crect x='30' y='30' width='60' height='60' transform='rotate(45 60 60)'/%3E%3Ccircle cx='60' cy='60' r='30'/%3E%3C/g%3E%3C/svg%3E");
-    }
+    .hero-pattern { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .5; background-image: radial-gradient(circle at 50% -10%, var(--primary-soft), transparent 55%); }
+    .hero-geo { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .06; background-repeat: repeat; background-size: 120px 120px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%231f4b3f' stroke-width='1.4'%3E%3Crect x='30' y='30' width='60' height='60'/%3E%3Crect x='30' y='30' width='60' height='60' transform='rotate(45 60 60)'/%3E%3Ccircle cx='60' cy='60' r='30'/%3E%3C/g%3E%3C/svg%3E"); }
     html[data-theme="dark"] .hero-geo { opacity: .05; }
     .hero .container { position: relative; z-index: 1; }
-    .hero .ribbon {
-      display: inline-flex; align-items: center; gap: .5rem; padding: .4rem .9rem; border-radius: 999px;
-      background: var(--surface); border: 1px solid var(--border); color: var(--muted);
-      font-size: .85rem; margin-bottom: 1.5rem; box-shadow: var(--shadow);
-    }
+    .hero .ribbon { display: inline-flex; align-items: center; gap: .5rem; padding: .4rem .9rem; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); color: var(--muted); font-size: .85rem; margin-bottom: 1.5rem; box-shadow: var(--shadow); }
     .hero h1 { font-size: clamp(1.8rem, 6vw, 3rem); letter-spacing: -.01em; }
     .hero .subtitle { font-family: var(--font-scripture); font-size: clamp(1.15rem, 3.5vw, 1.5rem); color: var(--gold); font-weight: 700; margin-bottom: 1.25rem; }
     .hero .intro { max-width: 620px; margin: 0 auto 2rem; color: var(--muted); font-size: 1.05rem; }
@@ -221,9 +137,6 @@
     .hero-divider { display: flex; align-items: center; justify-content: center; gap: .7rem; margin: 2.4rem auto 0; color: var(--gold); opacity: .8; }
     .hero-divider span { height: 1px; width: 60px; background: currentColor; opacity: .5; }
 
-    /* ===================================================================
-       CARDS / GRID
-       =================================================================== */
     .grid { display: grid; gap: 1rem; }
     .cards-3 { grid-template-columns: 1fr; }
     @media (min-width: 640px) { .cards-3 { grid-template-columns: repeat(2, 1fr); } }
@@ -235,36 +148,17 @@
     .card h3 { font-size: 1.12rem; }
     .card p { color: var(--muted); font-size: .95rem; margin: 0; }
 
-    /* ===================================================================
-       LECTURE CARDS
-       =================================================================== */
     .lecture-grid { display: grid; gap: .8rem; grid-template-columns: 1fr; }
     @media (min-width: 480px) { .lecture-grid { grid-template-columns: repeat(2, 1fr); } }
-    .lecture-card {
-      display: flex; align-items: center; gap: .9rem; text-align: start;
-      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 1rem 1.1rem; box-shadow: var(--shadow); cursor: pointer; width: 100%;
-      transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease; color: var(--text);
-    }
+    .lecture-card { display: flex; align-items: center; gap: .9rem; text-align: start; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.1rem; box-shadow: var(--shadow); cursor: pointer; width: 100%; transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease; color: var(--text); }
     .lecture-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); border-color: var(--gold); }
-    .lecture-card .lc-badge {
-      flex: none; width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center;
-      background: linear-gradient(150deg, var(--primary), var(--primary-strong)); color: var(--gold);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.12);
-    }
+    .lecture-card .lc-badge { flex: none; width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; background: linear-gradient(150deg, var(--primary), var(--primary-strong)); color: var(--gold); box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); }
     .lecture-card .lc-info { flex: 1; min-width: 0; }
     .lecture-card .lc-info h3 { font-size: 1.02rem; margin: 0 0 .2rem; }
     .lecture-card .lc-info span { font-size: .8rem; color: var(--muted); }
     .lecture-card .lc-go { flex: none; color: var(--muted); }
 
-    /* ===================================================================
-       PRAYER (du'a) SECTION
-       =================================================================== */
-    .dua-feature {
-      background: linear-gradient(180deg, var(--primary), var(--primary-strong));
-      color: #fff; border-radius: var(--radius); padding: 2rem 1.6rem; text-align: center;
-      box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
-    }
+    .dua-feature { background: linear-gradient(180deg, var(--primary), var(--primary-strong)); color: #fff; border-radius: var(--radius); padding: 2rem 1.6rem; text-align: center; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
     .dua-feature .tag { color: var(--gold); font-weight: 600; font-size: .9rem; margin-bottom: 1rem; display: inline-flex; gap: .4rem; align-items: center; }
     html[data-theme="dark"] .dua-feature { background: linear-gradient(180deg, #1c3830, #16302a); }
     .dua-text { font-family: var(--font-scripture); font-size: clamp(1.25rem, 4vw, 1.7rem); line-height: 2.1; margin: 0 auto 1.2rem; max-width: 720px; }
@@ -281,9 +175,6 @@
     .dua-item .body .src { font-size: .82rem; color: var(--muted); }
     .dua-item + .dua-item { margin-top: 1.2rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
 
-    /* ===================================================================
-       QURAN
-       =================================================================== */
     .quran-toolbar { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; justify-content: center; margin-bottom: 1.4rem; }
     .search { display: flex; align-items: center; gap: .5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: .55rem 1rem; flex: 1 1 260px; max-width: 420px; }
     .search [data-lucide] { color: var(--muted); flex: none; }
@@ -292,11 +183,7 @@
     .surah-grid { display: grid; grid-template-columns: 1fr; gap: .6rem; }
     @media (min-width: 640px) { .surah-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 940px) { .surah-grid { grid-template-columns: repeat(3, 1fr); } }
-    .surah-btn {
-      display: flex; align-items: center; gap: .9rem; text-align: right; width: 100%;
-      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
-      padding: .8rem 1rem; transition: border-color .2s, transform .12s;
-    }
+    .surah-btn { display: flex; align-items: center; gap: .9rem; text-align: right; width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: .8rem 1rem; transition: border-color .2s, transform .12s; }
     .surah-btn:hover { border-color: var(--primary); transform: translateY(-2px); }
     .surah-btn .no { flex: none; width: 40px; height: 40px; display: grid; place-items: center; background: var(--primary-soft); color: var(--primary); font-weight: 700; border-radius: 10px; transform: rotate(45deg); font-size: .85rem; }
     .surah-btn .no span { transform: rotate(-45deg); }
@@ -306,37 +193,20 @@
     .surah-btn .count { font-family: var(--font-scripture); color: var(--gold); font-size: 1.3rem; }
     #quranStatus { text-align: center; color: var(--muted); padding: 1rem; }
 
-    /* Quran reader overlay */
     .reader { position: fixed; inset: 0; z-index: 1500; background: var(--bg); display: none; flex-direction: column; }
     .reader.open { display: flex; }
-    .reader-top {
-      display: flex; align-items: center; justify-content: space-between; gap: .5rem;
-      padding: .8rem 1rem; border-bottom: 1px solid var(--border); background: var(--surface);
-      padding-top: calc(.8rem + env(safe-area-inset-top, 0px));
-    }
+    .reader-top { display: flex; align-items: center; justify-content: space-between; gap: .5rem; padding: .8rem 1rem; border-bottom: 1px solid var(--border); background: var(--surface); padding-top: calc(.8rem + env(safe-area-inset-top, 0px)); }
     .reader-top .title { font-weight: 700; }
     .reader-tools { display: flex; align-items: center; gap: .4rem; }
-    
-    .reader-audio {
-      display: flex; flex-direction: column; align-items: stretch; gap: .8rem;
-      padding: 1rem; background: var(--primary-soft); border-bottom: 1px solid var(--border);
-    }
+    .reader-audio { display: flex; flex-direction: column; align-items: stretch; gap: .8rem; padding: 1rem; background: var(--primary-soft); border-bottom: 1px solid var(--border); }
     .reader-audio-label { display: flex; align-items: center; justify-content: center; gap: .4rem; font-size: .95rem; color: var(--primary); font-weight: 600; flex: none; }
     .reader-audio audio { width: 100%; height: 50px; outline: none; border-radius: 8px; }
-    
     .reader-body { overflow-y: auto; padding: 1.5rem 1rem calc(3rem + env(safe-area-inset-bottom,0)); -webkit-overflow-scrolling: touch; }
     .reader-inner { max-width: 760px; margin: 0 auto; }
     .basmala { text-align: center; font-family: var(--font-scripture); font-size: 1.7rem; color: var(--gold); margin-bottom: 1.5rem; }
     .ayat { font-family: var(--font-scripture); font-size: var(--ayah-size, 1.7rem); line-height: 2.5; text-align: justify; }
-    .ayah-num {
-      display: inline-grid; place-items: center; min-width: 1.9em; height: 1.9em; margin: 0 .25em;
-      font-family: var(--font-ui); font-size: .55em; color: var(--gold); border: 1px solid var(--gold);
-      border-radius: 50%; vertical-align: middle; font-weight: 600;
-    }
+    .ayah-num { display: inline-grid; place-items: center; min-width: 1.9em; height: 1.9em; margin: 0 .25em; font-family: var(--font-ui); font-size: .55em; color: var(--gold); border: 1px solid var(--gold); border-radius: 50%; vertical-align: middle; font-weight: 600; }
 
-    /* ===================================================================
-       ADHKAR / HISN AL-MUSLIM
-       =================================================================== */
     .chips { display: flex; gap: .5rem; overflow-x: auto; padding: 0 4px .6rem; margin-bottom: 1rem; scrollbar-width: none; }
     .chips::-webkit-scrollbar { display: none; }
     .chip { flex: none; padding: .5rem 1rem; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--muted); font-size: .9rem; font-weight: 500; white-space: nowrap; transition: all .2s; }
@@ -361,18 +231,12 @@
     .source-note { margin-top: 1.4rem; padding: 1rem 1.2rem; border-radius: var(--radius-sm); background: var(--surface-2); border: 1px dashed var(--border); font-size: .88rem; color: var(--muted); display: flex; gap: .7rem; align-items: flex-start; }
     .source-note [data-lucide] { flex: none; color: var(--gold); margin-top: 2px; }
 
-    /* ===================================================================
-       YOUTUBE FACADE
-       =================================================================== */
     .yt-facade { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: #0d0d0d; cursor: pointer; display: grid; place-items: center; border: 1px solid var(--border); }
     .yt-facade .play { width: 68px; height: 68px; border-radius: 50%; background: rgba(0,0,0,.55); display: grid; place-items: center; color: #fff; border: 1px solid rgba(255,255,255,.35); transition: transform .2s, background .2s; }
     .yt-facade:hover .play { transform: scale(1.08); background: var(--primary); }
     .yt-facade iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
     .recitation-note { text-align: center; color: var(--muted); font-size: .9rem; margin-top: 1rem; }
 
-    /* ===================================================================
-       SADAQAH
-       =================================================================== */
     .donate-hero { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-lg); overflow: hidden; margin-bottom: 1.4rem; }
     .donate-hero .band { background: linear-gradient(120deg, var(--primary), var(--primary-strong)); color: #fff; padding: 1.6rem; text-align: center; }
     .donate-hero .band .kicker { color: var(--gold); font-weight: 600; margin-bottom: .4rem; }
@@ -389,18 +253,12 @@
     .field .value.rtl { direction: rtl; text-align: right; }
     .disclaimer { text-align: center; color: var(--muted); font-size: .85rem; max-width: 620px; margin: 1.2rem auto 0; }
 
-    /* ===================================================================
-       REMINDER BANNER
-       =================================================================== */
     .reminder { display: none; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.3rem 1.4rem; text-align: center; max-width: 620px; margin: 0 auto; }
     .reminder.show { display: block; }
     .reminder .ico { width: 48px; height: 48px; border-radius: 12px; background: var(--gold-soft); color: var(--gold); display: grid; place-items: center; margin: 0 auto 1rem; }
     .reminder .actions { display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
     .reminder-status { font-size: .85rem; color: var(--muted); margin-top: .8rem; }
 
-    /* ===================================================================
-       SHARE
-       =================================================================== */
     .share-box { max-width: 640px; margin: 0 auto; text-align: center; }
     .share-actions { display: flex; flex-wrap: wrap; gap: .7rem; justify-content: center; margin-top: 1.4rem; }
     .link-pill { display: inline-flex; align-items: center; gap: .5rem; margin: 1rem auto 0; padding: .6rem 1rem; background: var(--surface-2); border: 1px dashed var(--border); border-radius: 999px; direction: ltr; color: var(--muted); font-size: .9rem; }
@@ -409,9 +267,6 @@
     .qr-box canvas, .qr-box img { display: block; width: 168px; height: 168px; }
     .qr-caption { font-size: .82rem; color: var(--muted); }
 
-    /* ===================================================================
-       FOOTER
-       =================================================================== */
     footer.site { background: var(--surface); border-top: 1px solid var(--border); padding: 2.4rem 0 calc(2.4rem + var(--bottom-h)); text-align: center; }
     footer .brand { justify-content: center; margin-bottom: 1rem; }
     footer .foot-dua { font-family: var(--font-scripture); font-size: 1.25rem; color: var(--primary); margin-bottom: 1rem; }
@@ -419,9 +274,6 @@
     .visitors { display: inline-flex; align-items: center; gap: .5rem; font-size: .9rem; color: var(--muted); background: var(--surface-2); border: 1px solid var(--border); padding: .5rem 1rem; border-radius: 999px; }
     .foot-meta { color: var(--muted); font-size: .82rem; margin-top: 1.2rem; }
 
-    /* ===================================================================
-       BOTTOM NAV (mobile)
-       =================================================================== */
     .bottom-nav { position: fixed; bottom: 0; right: 0; left: 0; z-index: 1000; background: color-mix(in srgb, var(--surface) 92%, transparent); backdrop-filter: blur(14px) saturate(1.3); border-top: 1px solid var(--border); display: flex; justify-content: space-around; align-items: stretch; padding-bottom: env(safe-area-inset-bottom, 0px); height: var(--bottom-h); }
     .bottom-nav a, .bottom-nav button { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: var(--muted); font-size: .68rem; font-weight: 600; background: none; border: 0; padding: 6px 0; transition: color .2s; position: relative; }
     .bottom-nav a[data-lucide], .bottom-nav a [data-lucide], .bottom-nav button [data-lucide] { width: 23px; height: 23px; }
@@ -432,9 +284,6 @@
     .fab-sadaqah:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(171,129,48,.45); }
     .fab-sadaqah [data-lucide] { width: 19px; height: 19px; }
 
-    /* ===================================================================
-       "MORE" SHEET
-       =================================================================== */
     .backdrop { position: fixed; inset: 0; background: rgba(15,20,17,.5); z-index: 1100; opacity: 0; pointer-events: none; transition: opacity .25s; }
     .backdrop.show { opacity: 1; pointer-events: auto; }
     .sheet { position: fixed; right: 0; left: 0; bottom: 0; z-index: 1200; background: var(--surface); border-radius: 22px 22px 0 0; padding: 1rem 1.2rem calc(1.4rem + env(safe-area-inset-bottom,0)); transform: translateY(110%); transition: transform .3s cubic-bezier(.2,.8,.2,1); box-shadow: var(--shadow-lg); max-height: 82vh; overflow-y: auto; }
@@ -446,9 +295,6 @@
     .sheet-links a:hover { border-color: var(--primary); transform: translateY(-2px); }
     .sheet-links a .ico3 { width: 42px; height: 42px; border-radius: 11px; background: var(--primary-soft); color: var(--primary); display: grid; place-items: center; }
 
-    /* ===================================================================
-       TOAST
-       =================================================================== */
     .toast { position: fixed; bottom: calc(var(--bottom-h) + 14px); left: 50%; transform: translateX(-50%) translateY(20px); background: var(--primary-strong); color: #fff; padding: .7rem 1.2rem; border-radius: 999px; font-size: .9rem; box-shadow: var(--shadow-lg); z-index: 1600; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; display: flex; align-items: center; gap: .5rem; }
     .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
     @media (min-width: 940px) { .toast { bottom: 24px; } }
@@ -456,9 +302,6 @@
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
     .reveal.in { opacity: 1; transform: none; }
 
-    /* ===================================================================
-       APP SCREENS
-       ===================================================================== */
     #main { max-width: var(--app-w); margin: 0 auto; width: 100%; }
     #main > section { display: none; }
     #main > section.screen-active { display: block; animation: screenIn .28s ease both; }
@@ -516,7 +359,6 @@
   </a>
 
   <main id="main">
-    <!-- ============================= HERO ============================= -->
     <section class="hero screen-active" id="home">
       <div class="hero-pattern" aria-hidden="true"></div>
       <div class="hero-geo" aria-hidden="true"></div>
@@ -533,7 +375,6 @@
       </div>
     </section>
 
-    <!-- ============================= PRAYER FOR IBRAHIM ============================= -->
     <section id="dua">
       <div class="container">
         <div class="section-head">
@@ -560,7 +401,6 @@
       </div>
     </section>
 
-    <!-- ============================= QURAN ============================= -->
     <section id="quran" class="alt">
       <div class="container">
         <div class="section-head">
@@ -598,7 +438,6 @@
       </div>
     </div>
 
-    <!-- ============================= HISN AL-MUSLIM / ADHKAR ============================= -->
     <section id="adhkar">
       <div class="container">
         <div class="section-head">
@@ -622,7 +461,6 @@
       </div>
     </section>
 
-    <!-- ============================= IBRAHIM'S RECITATION ============================= -->
     <section id="recitation">
       <div class="container">
         <div class="section-head">
@@ -644,7 +482,6 @@
       </div>
     </section>
 
-    <!-- ============================= BENEFICIAL LECTURES ============================= -->
     <section id="lectures" class="alt">
       <div class="container">
         <div class="section-head">
@@ -660,7 +497,6 @@
       </div>
     </section>
 
-    <!-- ============================= SADAQAH JARIYAH ============================= -->
     <section id="sadaqah">
       <div class="container">
         <div class="section-head">
@@ -780,7 +616,6 @@
       </div>
     </section>
 
-    <!-- ============================= DAILY REMINDER ============================= -->
     <section id="reminder" class="alt">
       <div class="container">
         <div class="section-head">
@@ -801,7 +636,6 @@
       </div>
     </section>
 
-    <!-- ============================= SHARE ============================= -->
     <section id="share">
       <div class="container">
         <div class="share-box">
@@ -833,8 +667,13 @@
       <div class="brand"><span class="brand-title">لإبراهيم رحمه الله</span></div>
       <p class="foot-dua">اللهم اغفر لإبراهيم وارحمه، وأجرِ له أجر ما يُنتفع به.</p>
       
-      <!-- العداد الفعلي للزوار -->
-      <div class="visitors"><i data-lucide="users"></i> عدد زوّار الموقع: <strong id="visitorCount"><i data-lucide="loader" style="width:14px;height:14px;animation:spin 1s linear infinite"></i></strong></div>
+      <!-- العداد الفعلي للزوار (يعمل كصورة مباشرة لتخطي أي مشاكل تقنية) -->
+      <div class="visitors">
+        <i data-lucide="users"></i> عدد زوّار الموقع: 
+        <strong id="visitorCount">
+          <img src="https://api.visitorbadge.io/api/visitors?path=foribrahim.org&countColor=%231e4f42&labelStyle=none" alt="عداد الزوار" onerror="this.style.display='none'" style="height:20px; vertical-align:middle; border-radius: 4px; margin-right: 6px;">
+        </strong>
+      </div>
       
       <p class="foot-meta">
         موقع تذكاري خيري لا يجمع بيانات شخصية ولا يستخدم حسابات. جميع الأدعية والأذكار من مصادر موثوقة.
@@ -863,6 +702,8 @@
       <a href="#sadaqah" data-close-sheet><span class="ico3"><i data-lucide="hand-heart"></i></span>الصدقة الجارية</a>
       <a href="#share" data-close-sheet><span class="ico3"><i data-lucide="share-2"></i></span>مشاركة الموقع</a>
       <a href="#reminder" data-close-sheet><span class="ico3"><i data-lucide="bell"></i></span>التذكير</a>
+      <!-- زر تثبيت التطبيق الإضافي في قائمة المزيد -->
+      <a href="#" id="installAppSheetBtn" style="display:none" data-close-sheet><span class="ico3"><i data-lucide="download-cloud"></i></span>تثبيت التطبيق</a>
     </div>
     <div style="margin-top:1rem">
       <button class="btn btn-outline" style="width:100%" id="themeToggleSheet"><i data-lucide="moon" class="icon"></i> تبديل الوضع الليلي</button>
@@ -881,38 +722,48 @@
     "use strict";
 
     /* =====================================================================
-       PWA Setup & Service Worker Registration
+       PWA Install Logic
        ===================================================================== */
+    // تسجيل الـ Service Worker إن وجد (هذا ضروري لعمل الموقع بدون نت)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
-        navigator.serviceWorker.register('sw.js').catch(function(err) {
-          console.log('ServiceWorker registration failed: ', err);
-        });
+        navigator.serviceWorker.register('sw.js').catch(function() {});
       });
     }
 
     var deferredPrompt;
+    var installBanner = document.getElementById('installBanner');
+    var installAppSheetBtn = document.getElementById('installAppSheetBtn');
+
     window.addEventListener('beforeinstallprompt', function (e) {
-      // يمنع المتصفح من إظهار رسالة التثبيت الافتراضية المزعجة
       e.preventDefault();
       deferredPrompt = e;
-      // يظهر الرسالة المصممة خصيصاً للموقع
-      document.getElementById('installBanner').classList.add('show');
+      // إظهار اللافتة العلوية بمجرد الدخول للموقع
+      installBanner.classList.add('show');
+      // إظهار الخيار في قائمة "المزيد" السفلية
+      installAppSheetBtn.style.display = 'flex';
     });
 
-    document.getElementById('installBtn').addEventListener('click', function () {
-      var banner = document.getElementById('installBanner');
-      banner.classList.remove('show');
+    function doInstall() {
+      installBanner.classList.remove('show');
       if (deferredPrompt) {
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then(function (choiceResult) {
           deferredPrompt = null;
+          // إخفاء الزر من القائمة بعد التثبيت
+          installAppSheetBtn.style.display = 'none';
         });
       }
-    });
+    }
 
+    // ربط الأزرار بوظيفة التثبيت
+    document.getElementById('installBtn').addEventListener('click', doInstall);
+    installAppSheetBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      doInstall();
+    });
     document.getElementById('closeInstall').addEventListener('click', function () {
-      document.getElementById('installBanner').classList.remove('show');
+      installBanner.classList.remove('show');
     });
 
     /* =====================================================================
@@ -1241,26 +1092,6 @@
     }
 
     /* =====================================================================
-       Visitor Counter (Real & Free)
-       ===================================================================== */
-    function setupVisitorCount() {
-      var el = document.getElementById("visitorCount");
-      // نستخدم API مجاني تماماً لحساب الزيارات كلما دخل أحد للموقع
-      fetch("https://api.counterapi.dev/v1/foribrahim_org/visits/up")
-        .then(function(r) { return r.json(); })
-        .then(function(j) {
-          if(j && j.count) {
-            el.innerHTML = Number(j.count).toLocaleString("ar-EG");
-          } else {
-            el.innerHTML = "—";
-          }
-        })
-        .catch(function(e) {
-          el.innerHTML = "—";
-        });
-    }
-
-    /* =====================================================================
        App screen router
        ===================================================================== */
     var SCREEN_IDS = ["home", "dua", "quran", "adhkar", "recitation", "lectures", "sadaqah", "reminder", "share"];
@@ -1315,7 +1146,7 @@
       $("#readerClose").addEventListener("click", closeReader); document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeReader(); });
       $("#fontUp").addEventListener("click", function () { ayahSize = Math.min(3, ayahSize + 0.15); applyAyahSize(); store.set("ayahSize", ayahSize); });
       $("#fontDown").addEventListener("click", function () { ayahSize = Math.max(1.1, ayahSize - 0.15); applyAyahSize(); store.set("ayahSize", ayahSize); });
-      renderLectures(); setupRecitation(); setupReminder(); setupShare(); setupCopyButtons(); setupVisitorCount(); setupScreenRouter(); setupSheet();
+      renderLectures(); setupRecitation(); setupReminder(); setupShare(); setupCopyButtons(); setupScreenRouter(); setupSheet();
       $("#themeToggle").addEventListener("click", toggleTheme); icons();
     }
 
